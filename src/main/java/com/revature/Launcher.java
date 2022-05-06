@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.utils.ConnectionUtil;
+import com.revature.controllers.EmployeeController;
+import io.javalin.Javalin;
 
 public class Launcher {
 
@@ -39,5 +41,23 @@ public class Launcher {
     				e.printStackTrace();
     			}
     	
+    			
+    			//Instantiating an EmployeeController object so that we can access it's Handlers
+		        EmployeeController ec = new EmployeeController();
+		        
+    			//Typical Javalin syntax to create a Javalin object
+    			Javalin app = Javalin.create(
+    					//The config lambda lets us specify certain configurations.
+    					config ->{ 
+    						config.enableCorsForAllOrigins();
+    						
+    					}
+			
+    					).start(3000); //we need this to start our application on port 3000
+    			
+    			//handler ending in /employees that takes in GET requests - will return all employees
+    			//the app.get() method takes in a URL endpoint, and a place in the server to send the request to
+    			app.get("/employees", ec.getEmployeesHandler);
     }
+    
 }

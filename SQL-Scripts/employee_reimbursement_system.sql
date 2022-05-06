@@ -56,8 +56,15 @@ reimb_type_id_fk int REFERENCES ers_reimbursement_type(reimb_type_id),
 ers_author_fk int REFERENCES ers_users(ers_users_id)
 
 );
-
--- 
+-- Create Employeess table will hold revelant information to the users
+CREATE TABLE employees (
+	employee_id serial PRIMARY KEY,
+	first_name TEXT,
+	last_name TEXT,
+	ers_user_roles_id_fk int REFERENCES ers_user_roles(ers_user_roles_id), --foreign key: establishes a relationship between the tables
+    reimb_status_id_fk int REFERENCES ers_reimbursement_status(reimb_status_id),  --foreign key: establishes a relationship between the tables
+	reimb_type_id_fk int REFERENCES ers_reimbursement_type(reimb_type_id)
+    );
 
 -- Drop table ers_user_roles need delete information
 DROP TABLE ers_user_roles;
@@ -110,6 +117,15 @@ VALUES ('mar','mar','Marlin','Sanc','mar123@revature.net',1),
          ('2.50', current_timestamp, 4, 1, 2, 3, 3, 4);
  
          SELECT * FROM ers_reimbursement;
+ 
+ -- INSERT data into Employee table 
+ INSERT INTO employees (first_name, last_name, ers_user_roles_id_fk, reimb_status_id_fk, reimb_type_id_fk)  
+ VALUES ('Marlin', 'Sanc', 1, 2, 3 ),
+        ('Carlos', 'Sams', 2, 1, 2 ),
+        ('Valeria', 'Lopez', 4, 3, 4),
+        ('Samuel', 'Gomez', 3, 2, 2);
+       
+       SELECT * FROM employees;
  
  
  

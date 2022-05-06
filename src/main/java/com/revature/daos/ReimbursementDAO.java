@@ -1,4 +1,4 @@
-package com.revature.DAO;
+package com.revature.daos;
 
 public class ReimbursementDAO {
 
