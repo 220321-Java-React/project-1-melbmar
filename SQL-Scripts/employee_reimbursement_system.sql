@@ -72,7 +72,7 @@ DROP TABLE ers_users;
 DROP TABLE ers_reimbursement;
 DROP TABLE ers_reimbursement_type;
 DROP TABLE ers_reimbursement_status;
-
+DROP TABLE employees;
 
 -- INSERT infor in table reimbursement type (the employee can choose their reimbursement)
 INSERT INTO ers_reimbursement_type (reimb_type) 

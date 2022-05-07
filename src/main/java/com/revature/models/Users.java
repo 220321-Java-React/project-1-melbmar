@@ -44,6 +44,8 @@ public class Users {
 
 	}
 
+
+
 	// I created getter/Setter (ENCAPSULATION) one of the pillar of OOP-Java
     // Both allows me to access and change variable to private
 	public int getErs_users_id() {

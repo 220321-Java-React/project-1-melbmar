@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import com.revature.models.Status;
 import com.revature.utils.ConnectionUtil;
 
-public class StatusDAO implements StatusDAOInterface{
+public class StatusDAO {
 	//This method will contact the database to get a dataset of all the roles in our database
-		@Override
+		
 		public ArrayList<Status> getStatus(){
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
@@ -63,7 +63,7 @@ public class StatusDAO implements StatusDAOInterface{
 	   }//end of getRoles()
 		
 		//Bit more complicated query - we need to use parameters in a PreparedStatement
-		@Override
+		
 		public Status getStatusById(int id) {
 			
 			//use a try-with-resources block to open a DB connection

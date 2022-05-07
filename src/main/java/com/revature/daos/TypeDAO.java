@@ -13,10 +13,10 @@ import com.revature.utils.ConnectionUtil;
 
 	//This RoleDAO is responsible for communicating with the roles table in the database
 	//Every DB table should have a DAO class associated with it, if you want to use the data from that table 
-	public class TypeDAO implements TypeDAOInterface {
+	public class TypeDAO  {
 		
 		//This method will contact the database to get a dataset of all the roles in our database
-		@Override
+		
 		public ArrayList<Type> getType(){
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
@@ -67,7 +67,7 @@ import com.revature.utils.ConnectionUtil;
 		
 		
 		//Bit more complicated query - we need to use parameters in a PreparedStatement
-		@Override
+	
 		public Type getTypeById(int id) {
 			
 			//use a try-with-resources block to open a DB connection

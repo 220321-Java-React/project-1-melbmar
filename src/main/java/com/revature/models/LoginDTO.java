@@ -4,57 +4,56 @@ package com.revature.models;
 //this gets sent to the controller to get turned into this Java object (user Gson)
 //the username and password the user sent in will be put into this DTO as variable, wich we'll check in the AuthServide
 //NEVER store a DTO in the database, It's purely for DATA TRANSFER.. we're transferring the username/password
-public class LogintDTO {
+public class LoginDTO {
 
 	     // The LoginDTO models only the username/password sent in by the user
 		//Using encapsulation (OOP)
-		private String username;
-		private String password;
-		
+	    private String ers_username;
+		private String ers_password;
+	
+			
 		
 		// args no constructor 
-		public LogintDTO() {
+		public LoginDTO() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
 		//args constructor
-		public LogintDTO(String username, String password) {
+		public LoginDTO(String ers_username, String ers_password, int ers_user_roles_id) {
 			super();
-			this.username = username;
-			this.password = password;
+			this.ers_username = ers_username;
+			this.ers_password = ers_password;
+		
 		}
 
 		
-		//toString() is an important method because it allows us to print objects and their variables as a String
 		@Override
 		public String toString() {
-			return "LogintDTO [username=" + username + ", password=" + password + "]";
+			return "LoginDTO [ers_username=" + ers_username + ", ers_password=" + ers_password + ", ]";
 		}
-
+        
+		
+		
 		// I created getter/Setter (ENCAPSULATION) one of the pillar of OOP-Java
 	    // Both allows me to access and change variable to private
-		public String getUsername() {
-			return username;
+		
+		public String getErs_username() {
+			return ers_username;
 		}
 
-		public void setUsername(String username) {
-			this.username = username;
+		public void setErs_username(String ers_username) {
+			this.ers_username = ers_username;
 		}
 
-		public String getPassword() {
-			return password;
+		public String getErs_password() {
+			return ers_password;
 		}
 
-		public void setPassword(String password) {
-			this.password = password;
+		public void setErs_password(String ers_password) {
+			this.ers_password = ers_password;
 		}
-		
-		
-		
-		
-		
-		
-		
+
+	
 	
 }
