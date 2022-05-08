@@ -3,7 +3,7 @@ const url = "http://localhost:3000"; //putting our base URL in a variable for cl
 
 //add an event listener to give our buttons functionality (using DOM selection)
 //"When the getEmployeeButton gets clicked, execute the getEmployees function"
-document.getElementById("getEmployeeButton").addEventListener("click", getEmployees);
+//document.getElementById("getEmployeeButton").addEventListener("click", getEmployees);
 
 //"When the loginButton gets clicked, execute the loginFunction"
 document.getElementById("loginButton").addEventListener("click", loginFunction);
@@ -15,7 +15,7 @@ async function getEmployees() {
 
     //we will send a fetch request to get out employee data
     //by default, fetch requests send GET requests (see how to send others like POST below)
-    let response = await fetch(url + "/employees", {credentials: "include"});
+    let response = await fetch(url + "/employee", {credentials: "include"});
 
     //log the response in the console just to see the response object (good for debugging)
     console.log(response);
@@ -30,6 +30,8 @@ async function getEmployees() {
 
         //log the actual employee data that's been parsed from JSON (good for debugging)
         console.log(data);
+
+
 
         //For every Employee object we get back from our fetch request, put it in the table
         for(let employee of data){
@@ -72,8 +74,6 @@ async function getEmployees() {
 
 
 }
-
-
 //this function will send the user-inputted login credentials to our server
 async function loginFunction(){
 
@@ -84,8 +84,8 @@ let userp = document.getElementById("password").value;
 
 //we want to send the user/pass as JSON, so we need a JS object first.
 let user = {
-    username:usern,
-    password:userp
+    ers_username:usern,
+    ers_password:userp
 }
 //This object should reflect the LoginDTO in our Java... This is the data we want to transfer
 
@@ -93,7 +93,7 @@ let user = {
 console.log(user);
 
 //fetch request to the server
-//rememeber, the second parameter in a fetch is for configuring our fetch request
+//remember, the second parameter in a fetch is for configuring our fetch request
 //fetch sends a GET by default, but we need a POST, as well as some other configs
 let response = await fetch(url+"/login", {
 
@@ -107,23 +107,29 @@ let response = await fetch(url+"/login", {
 //log the response status code, useful for debugs
 console.log(response.status);
 
-
-
-//control flow based on successful/unsuccessful login
-if(response.status === 202){
+  //control flow based on successful/unsuccessful login
+  if(response.status === 202){
 
     //converting from json to JS
-    let data = await response.json();
+   let data = await response.json();
 
-    //wipe our login row and welcome the user
-    document.getElementById("loginRow").innerText="Welcome " + data.first_name + "!!";
-
+     //wipe our login row and welcome the user
+     // document.getElementById("loginRow").innerText="Welcome " + data.ers_first_name + "!!";
     //THIS IS PROBABLY WHERE YOUR REDIRECT WOULD BE IF USING MULTIPLE HTML PAGES
     //don't be intimidated, it's an easy google :)
-
+    //loop to redirect multiples html pages
+    if(data.ers_user_roles_id_fk == 1){
+    
+        window.location.replace ( "http://localhost:5500/financemanager.html");
 } else {
-    document.getElementById("welcomeHead").innerText="Login failed! Try Again";
-    document.getElementById("welcomeHead").style.color = "red";
+        window.location.replace ( "http://localhost:5500/employee.html");
+
+}
+    document.login("loginRow").innerText = "Welcome " + data.ers_first_name + "! !";
 }
 
 }
+
+//document.getElementById("welcomeHead").innerText="Login failed! Try Again";
+//document.getElementById("welcomeHead").style.color = "red";
+

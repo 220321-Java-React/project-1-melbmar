@@ -10,6 +10,7 @@ public class LoginDTO {
 		//Using encapsulation (OOP)
 	    private String ers_username;
 		private String ers_password;
+		private int ers_user_roles_id;
 	
 			
 		
@@ -24,17 +25,16 @@ public class LoginDTO {
 			super();
 			this.ers_username = ers_username;
 			this.ers_password = ers_password;
-		
+			this.ers_user_roles_id = ers_user_roles_id;
 		}
-
+		
 		
 		@Override
 		public String toString() {
-			return "LoginDTO [ers_username=" + ers_username + ", ers_password=" + ers_password + ", ]";
+			return "LoginDTO [ers_username=" + ers_username + ", ers_password=" + ers_password + ", ers_user_roles_id="
+					+ ers_user_roles_id + "]";
 		}
-        
-		
-		
+
 		// I created getter/Setter (ENCAPSULATION) one of the pillar of OOP-Java
 	    // Both allows me to access and change variable to private
 		
@@ -54,6 +54,14 @@ public class LoginDTO {
 			this.ers_password = ers_password;
 		}
 
-	
+		public int getErs_user_roles_id() {
+			return ers_user_roles_id;
+		}
+
+		public void setErs_user_roles_id(int ers_user_roles_id) {
+			this.ers_user_roles_id = ers_user_roles_id;
+		}
+
+		
 	
 }

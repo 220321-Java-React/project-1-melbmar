@@ -8,7 +8,7 @@ public class Reimbursement {
     //All variables are  private because private coupled with getters and setters (ENCAPSULATION)
 	private int reimb_id;
 	private float reimb_aumount;
-	private LocalDateTime  reimb_submitted;
+	private String  reimb_submitted;
 	private int reimb_author;
 	private int reimb_status_id;
 	private int reimb_type_id;
@@ -24,7 +24,7 @@ public class Reimbursement {
 	}
 
 	//all args constructor
-	public Reimbursement(int reimb_id, float reimb_aumount, LocalDateTime reimb_submitted, int reimb_author,
+	public Reimbursement(int reimb_id, float reimb_aumount, String reimb_submitted, int reimb_author,
 			int reimb_status_id, int reimb_type_id, int reimb_status_id_fl, int reimb_type_id_fk, int ers_author_fk) {
 		super();
 		this.reimb_id = reimb_id;
@@ -37,7 +37,10 @@ public class Reimbursement {
 		this.reimb_type_id_fk = reimb_type_id_fk;
 		this.ers_author_fk = ers_author_fk;
 	}
+
+		
 	//toString() is an important method because it allows us to print objects and their variables as a String
+		
 	@Override
 	public String toString() {
 		return "Reimbursement [reimb_id=" + reimb_id + ", reimb_aumount=" + reimb_aumount + ", reimb_submitted="
@@ -65,11 +68,11 @@ public class Reimbursement {
 		this.reimb_aumount = reimb_aumount;
 	}
 
-	public LocalDateTime getReimb_submitted() {
+	public String getReimb_submitted() {
 		return reimb_submitted;
 	}
 
-	public void setReimb_submitted(LocalDateTime reimb_submitted) {
+	public void setReimb_submitted(String reimb_submitted) {
 		this.reimb_submitted = reimb_submitted;
 	}
 
@@ -120,9 +123,7 @@ public class Reimbursement {
 	public void setErs_author_fk(int ers_author_fk) {
 		this.ers_author_fk = ers_author_fk;
 	}
-	
-	   
-	
+
 	
 	
 	

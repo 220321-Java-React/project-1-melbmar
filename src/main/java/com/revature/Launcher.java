@@ -5,6 +5,9 @@ import java.sql.SQLException;
 
 import com.revature.utils.ConnectionUtil;
 import com.revature.controllers.AuthController;
+import com.revature.controllers.ReimbursementController;
+import com.revature.controllers.UsersController;
+
 import io.javalin.Javalin;
 
 public class Launcher {
@@ -40,10 +43,13 @@ public class Launcher {
     				System.out.println("connection failed... :(");
     				e.printStackTrace();
     			}
-    	
     			
+    			//Instantiating an UsersController object so that we can access it's Handlers
+    			ReimbursementController er = new ReimbursementController();
     			
-		        // Instantiating an AuthController object so we can access it's Handlers
+    			//Instantiating an UsersController object so that we can access it's Handlers
+    			UsersController ec = new UsersController();
+;		        // Instantiating an AuthController object so we can access it's Handlers
 		        AuthController ac = new AuthController();
 		        
     			//Typical Javalin syntax to create a Javalin object
@@ -56,13 +62,18 @@ public class Launcher {
 			
     					).start(3000); //we need this to start our application on port 3000
     			
-    			//handler ending in /employees that takes in GET requests - will return all employees
+    			//handler ending in /employees that takes in GET requests - will return all Reimbursement
     			//the app.get() method takes in a URL endpoint, and a place in the server to send the request to
-    		    //app.get("/user", ec.getuserHandler);
+    			app.get("/reimbursement", er.getReimbursementHandler);
+    			//handler ending in /employees that takes in GET requests - will return all Reimbursement
+    			//the app.get() method takes in a URL endpoint, and a place in the server to send the request to
+    		    app.get("/users", ec.getUsersHandler);
     			
     			// Hander ending in/login that takes it POST request - will validate user login
     			// the app.post()method takes in a URL endpoint, add a place in the server to send the request to
     	       	app.post("/login", ac.loginHandler);
+    	       	
+    	       	
     }
     
 }

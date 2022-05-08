@@ -23,6 +23,7 @@ ers_user_roles_id_fk int REFERENCES ers_user_roles(ers_user_roles_id)
 
 );
 
+SELECT * FROM ers_users;
 
 -- Create ERS_Reimbuserment_status table will hold revelant information to the users
 CREATE TABLE ers_reimbursement_status(
@@ -47,7 +48,7 @@ reimb_type VARCHAR (10)
 CREATE TABLE ers_reimbursement (
 reimb_id serial PRIMARY KEY,
 reimb_aumount NUMERIC,
-reimb_submitted TIMESTAMP, -- The timestamp datatype allows you to store both date and time.
+reimb_submitted date NULL DEFAULT current_date, -- change to dateThe timestamp datatype allows you to store both date and time.
 reimb_author NUMERIC ,
 reimb_status_id NUMERIC, 
 reimb_type_id NUMERIC,
@@ -111,10 +112,10 @@ VALUES ('mar','mar','Marlin','Sanc','mar123@revature.net',1),
        
  -- INSERT data into ers_reimbursement table
  INSERT INTO ers_reimbursement (reimb_aumount, reimb_submitted, reimb_author, reimb_status_id, reimb_type_id, reimb_status_id_fk, reimb_type_id_fk, ers_author_fk)
-  VALUES ('20.50', current_timestamp, 1, 2, 1, 1, 1, 2),
-         ('98.30', current_timestamp, 2, 3, 4, 1, 2, 2),
-         ('10.50', current_timestamp, 3, 4, 3, 2, 4, 1),
-         ('2.50', current_timestamp, 4, 1, 2, 3, 3, 4);
+  VALUES ('20.50', '2020-05-20', 1, 2, 1, 1, 1, 2),
+         ('98.30', '2019-12-02', 2, 3, 4, 1, 2, 2),
+         ('10.50', '2022-02-02', 3, 4, 3, 2, 4, 1),
+         ('2.50', '2016-12-30', 4, 1, 2, 3, 3, 4);
  
          SELECT * FROM ers_reimbursement;
  

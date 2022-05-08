@@ -9,7 +9,7 @@ public class Users {
 	private String ers_password;
 	private String ers_first_name;
 	private String ers_second_name;
-	private String ers_mail;
+	private String ers_email;
 	private int ers_user_roles_id;
 	
 	
@@ -28,7 +28,7 @@ public class Users {
 		this.ers_password = ers_password;
 		this.ers_first_name = ers_first_name;
 		this.ers_second_name = ers_second_name;
-		this.ers_mail = ers_mail;
+		this.ers_email = ers_email;
 		this.ers_user_roles_id = ers_user_roles_id;
 	}
 
@@ -39,7 +39,7 @@ public class Users {
 	public String toString() {
 		return "Users [ers_users_id=" + ers_users_id + ", ers_username=" + ers_username + ", ers_password="
 				+ ers_password + ", ers_first_name=" + ers_first_name + ", ers_second_name=" + ers_second_name
-				+ ", ers_mail=" + ers_mail + ", ers_user_roles_id=" + ers_user_roles_id + "]";
+				+ ", ers_mail=" + ers_email + ", ers_user_roles_id=" + ers_user_roles_id + "]";
 	
 
 	}
@@ -89,11 +89,11 @@ public class Users {
 	}
 
 	public String getErs_mail() {
-		return ers_mail;
+		return ers_email;
 	}
 
 	public void setErs_mail(String ers_mail) {
-		this.ers_mail = ers_mail;
+		this.ers_email = ers_mail;
 	}
 
 	public int getErs_user_roles_id() {

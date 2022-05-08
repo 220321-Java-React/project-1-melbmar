@@ -3,7 +3,7 @@ const url = "http://localhost:3000"; //putting our base URL in a variable for cl
 
 //add an event listener to give our buttons functionality (using DOM selection)
 //"When the getEmployeeButton gets clicked, execute the getEmployees function"
-document.getElementById("getEmployeeButton").addEventListener("click", getEmployees);
+//document.getElementById("getEmployeeButton").addEventListener("click", getEmployees);
 
 //"When the loginButton gets clicked, execute the loginFunction"
 document.getElementById("loginButton").addEventListener("click", loginFunction);
@@ -44,18 +44,18 @@ async function getEmployees() {
             //add the td element (data cell) to the tr element (table row)
             row.appendChild(cell);
 
-            //we do this^^^^ for every column in employees
+            //we do this^^^^ for every column in users
 
             let cell2 = document.createElement("td");
-            cell2.innerHTML = employee.first_name;
+            cell2.innerHTML = ers_first_name;
             row.appendChild(cell2);
 
             let cell3 = document.createElement("td");
-            cell3.innerHTML = employee.last_name;
+            cell3.innerHTML = ers_second_name;
             row.appendChild(cell3);
 
             let cell4 = document.createElement("td");
-            cell4.innerHTML = employee.role.role_title;
+            cell4.innerHTML = ers_user_roles_id;
             row.appendChild(cell4);
 
             //append the tr (which we called "row") to the table body (tbody)
